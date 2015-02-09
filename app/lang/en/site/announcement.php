@@ -1,0 +1,100 @@
+<?php
+return array(
+    'breadcrumb' => array(
+        'add_news' => 'Add News',
+        'manage_news' => 'Manage News',
+        'list_news' => 'News List',
+        'add_attachment' => 'Manage Attachment',
+        'add_document' => 'Add Document',
+        'manage_document' => 'Manage Document',
+        'list_document' => 'Document List'
+    ),
+    'news' => array(
+        'add_head' => 'Add News',
+        'edit_head' => 'Edit News',
+        'manage_head' => 'Manage News',
+        'topic' => 'Topic',
+        'description' => 'Description',
+        'date_published' => 'Published Date',
+        'published_to' => 'Publish to',
+        'published_to_supervisor'  => 'Supervisor',
+        'published_to_admin'  => 'Admin',
+        'published_to_all_employees'  => 'All Employees',
+        'status' => 'Status',
+        'archive' => 'Archive',
+        'save_as_draft' => 'Save as Draft',
+        'publish' => 'Publish',
+        'confirm_archive' => 'Are you sure you want to archive?'
+    ),
+    'news_list' => array(
+        'list_page_title_head' => 'News',
+        'list_topic' => 'Topic',
+        'list_status' => 'Status',
+        'list_published_to' => 'Published to',
+    ),
+    'attachment_list' => array(
+        'list_page_title_head' => 'Attachments',
+        'list_file_name' => 'File Name',
+        'list_description' => 'Description',
+        'list_file_size' => 'Size',
+        'list_file_type' => 'Type',
+        'list_date_added' => 'Date Added',
+        'list_added_by' => 'Added By',
+    ),
+    'news_attachment' => array(
+        'add_title_head' => 'Add Attachment',
+        'edit_title_head' => 'Edit Attachment',
+        'attachment_file' => 'Select File',
+        'description'  => 'Description',
+        'attachment_max_file_size' => 'Accepts upto :max_size',
+        'file_keep' => 'Keep Current',
+        'file_replace' => 'Replace Current',
+    ),
+    'document' => array(
+        'add_head' => 'Add Document',
+        'edit_head' => 'Edit Document',
+        'manage_head' => 'Manage Document',
+        'topic' => 'Topic',
+        'description' => 'Description',
+        'category' => 'Category',
+        'date_published' => 'Published Date',
+        'published_to' => 'Publish to',
+        'published_to_supervisor'  => 'Supervisor',
+        'published_to_admin'  => 'Admin',
+        'published_to_all_employees'  => 'All Employees',
+        'status' => 'Status',
+        'archive' => 'Archive',
+        'save_as_draft' => 'Save as Draft',
+        'publish' => 'Publish',
+        'confirm_archive' => 'Are you sure you want to archive?'
+    ),
+    'document_list' => array(
+        'list_page_title_head' => 'Documents',
+        'list_topic' => 'Topic',
+        'list_status' => 'Status',
+        'list_published_to' => 'Published to',
+        'list_category' => 'Category',
+    ),
+    'document_attachment' => array(
+        'add_title_head' => 'Add Attachment',
+        'edit_title_head' => 'Edit Attachment',
+        'attachment_file' => 'Select File',
+        'description'  => 'Description',
+        'attachment_max_file_size' => 'Accepts upto :max_size',
+        'file_keep' => 'Keep Current',
+        'file_replace' => 'Replace Current',
+    ),
+    'document_category' => array(
+        'add_head' => 'Add Document Category',
+        'edit_head' => 'Edit Document Category',
+        'manage_head' => 'Manage Document Category',
+        'name' => 'Name',
+    ),
+    'document_category_list' => array(
+        'list_page_title_head' => 'Document Categorys',
+        'list_col_head_name' => 'Name',
+    ),
+
+
+
+);

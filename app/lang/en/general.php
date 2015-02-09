@@ -1,0 +1,56 @@
+<?php
+
+return array(
+
+	'yes' => 'Yes',
+	'no'  => 'No',
+    'must_login' => 'Must be logged in.',
+    'required' => 'Required',
+    'error' => 'Sorry errors found',
+	'contact_us' => 'Contact Us',
+	'sign_up' => 'Sign Up',
+	'submit' => 'Submit',
+	'update' => 'Update',
+	'save' => 'Save',
+	'cancel' => 'Cancel',
+	'sortby' => 'Sort by',
+	'no_records_found' => 'No records found',
+	'select_atleast_one' => 'Select atleast one',
+	'confirm_remove' => 'Are you sure you want to remove?',
+	'update_success' => 'Updated Successfully',
+	'add_success' => 'Added Successfully',
+	'delete_success' => 'Removed Successfully',
+	'error_found' => 'Sorry errors found',
+	'already_exists' => 'Already exists',
+    'any' => 'Any',
+    'all' => 'All',
+    'select' => 'Select',
+    'search' => 'Search',
+    'reset' => 'Reset',
+    'records_per_page' => 'Records per page',
+    'add' => 'Add',
+    'remove' => 'Remove',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'saving' => 'Saving...',
+    'accepted_max_file_size' => 'Accepts upto :max_size',
+    'accepted_format_max_file_size' => 'Accepts :format upto :max_size',
+    'recommended_dimension' => 'Recommended dimensions: :dimension',
+    'month_names' => array(
+        1 => 'Jan',
+        2 => 'Feb',
+        3 => 'Mar',
+        4 => 'Apr',
+        5 => 'May',
+        6 => 'Jun',
+        7 => 'Jul',
+        8 => 'Aug',
+        9 => 'Sep',
+        10 => 'Oct',
+        11 => 'Nov',
+        12 => 'Dec'
+    ),
+
+
+
+);
