@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HRMS</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="prettify/prettify.css" type="text/css" />
+<script type="text/javascript" src="prettify/prettify.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div class="mainwrapper fullwrapper" style="background-position: 0px 0px;">
+	
+    <!-- START OF LEFT PANEL -->
+    <div class="leftpanel">
+    	
+        <div class="logopanel">
+        	<h1><a href="dashboard.html"><img src="img/logonew.png"></a></h1>
+        </div><!--logopanel-->
+        
+        <div class="datewidget">Today is Tuesday, Oct 14, 2014 </div>
+    
+    	<div class="searchwidget">
+        	<form action="#" method="post">
+            	<div class="input-append">
+                    <input type="text" class="span2 search-query" placeholder="Search here...">
+                    <button type="submit" class="btn"><span class="icon-search"></span></button>
+                </div>
+            </form>
+        </div><!--searchwidget-->
+        
+        <div class="plainwidget">
+        	<small>Reminder !! Admin </small>
+        	<div class="progress progress-info">
+                <div class="bar" style="width: 20%"></div>
+            </div>
+            <small><strong>38% John Profile Completeness</strong></small>
+        </div><!--plainwidget-->
+       <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+            	<li class="nav-header" style="text-shadow: none;color: white;background: linear-gradient(to bottom, #8A8A8A 0%,#8A8A8A 100%);border-top: 1px solid #bbb;">Menu</li>
+                <li class="active"><a href="#" onClick="location.href='dashboard.html'"><span class="icon-align-justify"></span> Dashboard</a></li>
+               <!--Spring admin--> <li class=" dropdown "><a href="#"><span class="iconsweets-admin"></span>Spring Admin</a>
+            <ul>
+        <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">User Management</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+                        	<li><a href="user.html">Users</a></li>
+                            <li><a href="userroles.html">User Roles</a></li>
+                        </ul>                        
+       </li>
+         <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Spring Tools</a>
+         
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="emailsettings.html">Email Settings</a></li>
+                                <li><a href="emailsubscriptions.html">Email Subscriptions</a></li>
+                                <li><a href="localization.html">Localization</a></li>                               
+                                <li><a href="notifications.html">Notifications</a></li>
+                                <li><a href="openid.html">OpenID</a></li>
+                                <li><a href="authentication.html">Authentication</a></li>
+                                <li><a href="ldap.html">LDAP</a></li>
+                            </ul>	
+          </li>
+                        <li ><a href="audittrail.html">Audit Trail</a></li>
+                        <li><a href="Audit.html">Auditing</a></li>
+                        <li><a href="backup.html">Back Ups</a></li>
+              <li class="dropdown"><a href="#"style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Delete</a>
+                         <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="deleteemp.html">Delete All Employees Data</a></li>
+                            <li><a href="deletetimeoff.html">Delete All Time Off</a></li>
+                            <li><a href="deletedata.html">Delete All Data</a></li>
+                            <li><a href="deleteaccount.html">Delete Account</a></li>
+                          </ul>
+              </li>
+              <li class="dropdown"><a href="#"style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Settings</a>
+             <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                          		<li><a href="social.html">Social Settings</a></li>
+                          
+                          		<li><a href="security.html">Security Settings</a></li>
+                          </ul>
+              </li>
+                          <li><a href="account.html">Manage My Account</a></li>
+      </ul>
+      </li><!--Spring admin-->
+      
+              <!--Core Hr--><li class="dropdown"><a href="#"><span class="iconsweets-suitcase"></span>Core HR</a>
+                	<ul>
+           <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Org Data</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="organization-info.html">General Information</a></li>
+                            	<li><a href="org-location.html">Location</a></li>
+                                <li><a href="orgchart.html">Department Structure</a></li>
+                                 <li><a href="config.html">Setup Org Chart</a></li>
+                                  <li><a href="define.html">Setup Hierarchy</a></li>
+                                   <li><a href="view.html">View Org Chart</a></li>
+                            	</ul>	
+           </li>   
+               
+     <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Core HR</a>
+                 <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                    	<li><a href="optionalfields.html">Optional Fields</a></li>
+                        <li><a href="custom.html">Custom Fields</a></li>
+                        <li><a href="data.html">Data Import</a></li>
+                        <li><a href="rporting.html">Reporting Methods</a></li>
+                        <li><a href="terminationreason.html">Termination Reasons</a></li>
+                 </ul>
+     </li>
+       <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Job Data</a>
+                         <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="jobtitle.html">Job Titles</a></li>
+                                <li><a href="salarycomp.html">Salary Components</a></li>
+                                <li><a href="paygrades.html">Pay Grades</a></li>
+                                <li><a href="employmentstatus.html">Employement Status</a></li>
+                                <li><a href="jobcategories.html">Job Categories</a></li>
+                                <li><a href="workshifts.html">Work Shifts</a></li>
+                         </ul>                        
+        </li>
+                        
+          <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Credentials</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="skills.html">Skills</a></li>
+                                <li><a href="licenses.html">Licenses</a></li>
+                                <li><a href="education.html">Education</a></li>
+                                <li><a href="languages.html">Languages</a></li>
+                                <li><a href="memberships.html">Memberships</a></li>
+                            </ul>	
+         </li>
+                         <li><a href="nationalities.html">Setup Nationalities</a></li>
+     <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup News & Documents</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="news.html">News</a></li>
+                                <li><a href="news-categories.html">News Categories</a></li>
+                                <li><a href="documents.html">Documents</a></li>
+                                <li><a href="document-categories.html">Document Categories</a></li>
+                            </ul>	
+      </li>
+      <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Onboarding</a>
+                        <ul style="text-indent:20px;  background-color:#f7f7f7;"> 
+                        		<li><a href="tasking.html">Tasking Types</a></li>
+                        		<li><a href="events.html">Events</a></li>
+                        </ul>
+      </li>
+                        
+ <li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Equipment</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="brands.html">Brand Information</a></li>
+                                <li><a href="categories.html">Categories</a></li>   
+                                <li><a href="assets.html">Equipment Assignment</a></li>
+                               <li><a href="vendors.html">Vendors</a></li>
+                            </ul>	
+  </li>
+  
+  </ul>
+  </li><!--Core HR-->
+  
+           <!--Hr Reports--> <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;"> <span class="iconsweets-list4"></span>HR Reports</a>
+                        <ul>
+   							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Onboarding Reports</a>
+                        				<ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        					<li><a href="eventpro.html">Event Progress</a></li>
+                        					<li><a href="participant.html">Participant Progress</a></li>
+                        		       </ul>
+     						</li>
+    						<li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Reports</a>
+                    				<ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        				<li><a href="employeereport.html">Employee Report</a></li>
+                        				<li><a href="headcount.html">Head Count Report</a></li>
+                        				<li><a href="licenseexpiry.html">License Expiration Report</a></li>
+                        				<li><a href="turnoverhiring.html">Turnover Hiring Report</a></li>
+                        				<li><a href="turnovertermination.html">Turnover Termination Report</a></li>
+                        				<li><a href="Employeediversityreport.html">Employee Diversity Report</a></li>
+                        				<li><a href="Employeecustomfields.html">Employee Custom Fields</a></li>
+                    				</ul>
+     </li>
+     						 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Management Reports</a>
+                 <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="jobhistoryreport.html">Employee Job History</a></li>
+                        <li><a href="hiresreport.html">New Hires Report</a></li>
+                        <li><a href="empterminationreport.html">Employee Termination Date</a></li>
+                        <li><a href="employeelistreport.html">Employee List Report</a></li>
+                        <li><a href="Employeecontactlistreport.html">Employee Contact List Report</a></li>
+                        <li><a href="Employeeemergencycontactreport.html">Emergency Contact Report</a></li>
+                        <li><a href="Employeetimesheetreport.html">Employee Timesheet Report</a></li>
+                        <li><a href="Employeelengthofservicereport.html">Length of Service Report</a></li>
+                        <li><a href="Employeeworkcontactreport.html">Employee Work Contact Report</a></li>
+                        <li><a href="Employeestartdate.html">Employee Start Date</a></li>
+                      	<li><a href="Mandatorydocuments.html">Mandatory Documents</a></li>
+                 </ul>
+     </li>
+    						 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Performance Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        	 <li><a href="appsummary.html">Appraisal Summary Report</a></li>
+                        	 <li><a href="warningreport.html">Performance Warnings Report</a></li>
+                        </ul>
+   </li>
+  							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Talent Management Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                           <li><a href="succession.html">Vacancy Succession Report</a></li>
+                           <li><a href="vacancy.html">Job Opening Report</a></li>
+                           <li><a href="research.html">Candidates Report</a></li>
+                        </ul>
+  </li>
+  							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Training Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                         <li><a href="trainingreport.html">Training Report</a></li>
+                        </ul>
+   </li>
+ 							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Time & Attendance Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        		<li><a href="projectreports.html">Projects Reports</a></li>
+                                <li><a href="empreports.html">Employee Reports</a></li>
+                                <li><a href="attendance.html">Attendance Summary</a></li>
+                        </ul>
+  </li>
+   							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Organizational Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                          	<li><a href="Agechart.html">Age Chart</a></li>
+                        	<li><a href="gender.html">Gender Chart</a></li>
+                        	<li><a href="departmentchart.html">Department Chart</a></li>
+                        	<li><a href="jobrolechart.html">Job Title Chart</a></li>
+                         	<li><a href="locationchart.html">Location Chart</a></li>
+                       		<li><a href="managerchart.html">Manager Chart</a></li>
+                        	<li><a href="jobstatuschart.html">Job Status Chart</a></li>
+                        	<li><a href="orgchart.html">Organizational Chart</a></li>
+                        </ul>
+   </li>
+    						 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Financial Reports</a>
+                     <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="costreport.html">Employee Costs Report</a></li>
+                   		<li><a href="depositdetails.html">Direct Deposit Details Report</a></li>
+                        <li><a href="recriutreport.html">Recruitment Costs Report</a></li>
+                     </ul>
+    </li>
+               <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                       			<li><a href="usagereport.html">Leave Balances & Usage Report</a></li>
+                                <li><a href="leavepercentage.html">Leave Percentage Report</a></li>
+                        </ul>
+                 </li>
+                    </ul>
+                </li><!--Hr Reports-->
+                
+              <!--Emp--> <li class="dropdown"><a href="#"><span class="iconsweets-users"></span> Employees</a>
+                 <ul>
+                 <li><a href="add-employee.html">Add Employee</a></li>
+                   <li><a href="employee-list.html">Employee Profile</a></li>
+                  <li><a href="bulkupdate.html">Mass Update</a></li>
+               <li><a href="assets.html">Equipment Assignment</a></li>
+               
+<li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Reports</a>
+                        <ul>
+                        <li><a href="employeereport.html">Employee Report</a></li>
+                        <li><a href="headcount.html">Head Count Report</a></li>
+                        <li><a href="licenseexpiry.html">License Expiration Report</a></li>
+                        <li><a href="turnoverhiring.html">Turnover Hiring Report</a></li>
+                        <li><a href="turnovertermination.html">Turnover Termination Report</a></li>
+</ul>
+                        </li>
+                </ul>
+                </li><!--Emp-->
+                
+              <!--Self--> <li class="dropdown"> <a href="#"><span class=" iconsweets-cog2" ></span> Self Service</a>
+                	<ul>
+                    	
+                        <li><a href="edit-profile.html">Personal Information</a></li>
+ <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Time Tracking</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="timesheet.html">Timesheet</a></li>
+                        <li><a href="timesheet.html">Clock In/Out</a></li>
+                        <li><a href="time-offrequest.html">Time-Off Request</a></li>
+                        <li><a href="time-offrequest.html">Work Schedule</a></li>
+                        <li><a href="time-offrequest.html">Request Schedule Change</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Performance Reviews</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="myreviews.html">Appraisals</a></li>
+                                <li><a href="reviewfeedback.html">Peer Reviews</a></li>
+                                 <li><a href="mywarning.html">Warnings</a></li>
+                            </ul>	
+                        </li>
+        <li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Training</a>
+                          <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="Courses.html">Training Courses</a></li>
+                                <li><a href="trainingreq.html">Training Requests</a></li>
+                            </ul>	
+                        </li>
+                            <li><a href="#">Benefits</a>
+                            <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="benefits.html">Benefit Information</a></li>
+                           </ul>
+                            </li>
+                   <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Payroll</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="directdeposit.html">Direct Deposit Information</a></li>
+                                <li><a href="payadvice.html">Pay Checks</a></li>
+                            </ul>	
+                        </li>
+                              <li><a href="kudos.html">Props</a></li>
+                    </ul>
+                </li><!--Self-->
+                
+                <!--Performance--> <li class="dropdown"><a href="#"><span class="iconsweets-cup"></span>Performance Management</a>
+                	<ul>
+                    	<li><a href="manage.html"> Setup Reviewers</a></li>
+                           <li><a href="emptrackers.html">Employee Reviewers</a></li>
+        <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Competencies</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="competency.html">Competencies</a></li>
+                            <li><a href="compmapping.html">Competencies Mapping</a></li>
+                            </ul> 
+                            </li>
+             <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Goals</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="goallist.html">Employee Goals</a></li>
+                          </ul> 
+                            </li>
+    <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Appraisals</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="empappraisal.html">Employee Appraisals</a></li>
+                          </ul> 
+                            </li>
+    <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Appraisals</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                      <li><a href="appraisal.html">Appraisals</a></li>
+                           
+                            </ul> 
+                            </li>
+                            
+  <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="appsummary.html">Appraisal Summary Report</a></li>
+                        <li><a href="warningreport.html">Performance Warnings Report</a></li>
+                           </ul> 
+                            </li>
+                    </ul>
+                </li><!--Performance-->
+                
+                <!--Talent management--><li class="dropdown"><a href="#"><span class=" iconsweets-lightbulb"></span> Talent Management</a>
+                	<ul>
+                        <li><a href="candidate.html">Candidates</a></li>
+                         <li><a href="vacancy.html">Job Openings</a></li>
+                         
+                         
+         <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Questions</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                      <li><a href="tags.html">Interview Question Tags</a></li>
+                            <li><a href="pools.html">Interview Questions</a></li>
+                            </ul> 
+                            </li>
+             <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                        <li><a href="succession.html">Vacancy Succession Report</a></li>
+                           <li><a href="research.html">Candidates Report</a></li>
+                            <li><a href="vacancy.html">Job Opening Report</a></li>
+                            </ul> 
+                            </li>
+              </ul>
+                </li><!--Talent management-->
+                
+				<!--time--> <li class="dropdown "><a href="#"><span class="iconsweets-timer"></span>Time & Attendance</a>
+                	<ul>
+<li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Timesheets</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="timesheets.html">Timesheets</a></li>
+                                <li><a href="eporttime.html">Export to Timesheets</a></li>
+                            </ul>	
+                        </li>
+                    
+<li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Attendance</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="attendancerecords.html">Attendance</a></li>
+                                <li><a href="attendanceconfig.html">Setup Time & Attendance</a></li>
+                                <li><a href="cvs.html">Export Attendance </a></li>
+                                <li><a href="dataupload.html">Import Attendance</a></li>
+                            </ul>	
+                        </li>
+                  <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                            <li><a href="projectreports.html">Projects Reports</a></li>
+                                <li><a href="empreports.html">Employee Reports</a></li>
+                                <li><a href="attendance.html">Attendance Summary</a></li> 	
+                            </ul>	
+                        </li>
+<li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Project</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="customersinfo.html">Customer</a></li>
+                                <li><a href="projectsinfo.html">Projects Information</a></li>
+                            </ul>	
+                        </li>
+               </ul>
+                </li><!--Time-->
+                
+               <!--leave--> <li class="dropdown "><a href="#"><span class="iconsweets-alert"></span>Leave Management</a>
+                	<ul>
+  <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Leave Balances</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="addentitlement.html">Leave Information</a></li>
+                                <li><a href="employeeentitlements.html">Employee Leave</a></li>
+                            </ul>	
+                        </li>
+                         <li><a href="leavelist.html">Leave Approval Report</a></li>
+                                <li><a href="assignleave.html">Leave Request</a></li>
+                                <li><a href="leavecal.html">Leave Calendar</a></li>
+                    
+<li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             <li><a href="usagereport.html">Leave Balances & Usage Report</a></li>
+                                <li><a href="leavepercentage.html">Leave Percentage Report</a></li>
+                            </ul>	
+                        </li>
+                        
+<li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Leave</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="leaveperiod.html">Leave Period</a></li>
+                                <li><a href="leavetypes.html">Leave Types</a></li>
+ <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Leave Rules</a><ul>
+                               <li><a href="leaverule.html">General page</a></li>
+                                <li><a href="canapply.html">Who can apply page</a></li>
+                                <li><a href="assignrestiction.html">Apply/Assign Restrictions page</a></li>                               
+                                <li><a href="accural.html">Accural Rule page</a></li>
+                                 <li><a href="carryrules.html">Carry Forward Rule page</a></li>
+                                 </ul></li>
+                                <li><a href="work.html">Work Week</a></li>
+                                <li><a href="holidays.html">Holidays</a></li>                               
+                                <li><a href="confignotifications.html">Notifications</a></li>
+                            </ul>	
+                        </li>
+                       
+                    </ul>
+                </li><!--leave-->
+                
+               <!--Benefits --> <li><a href="payroll.html"><span class="iconsweets-create"></span>Benefits Administration</a>
+                <ul>
+                               <li><a href="benefits.html">Setup Benefits Programs</a></li>
+                                <li><a href="benefitstypes.html">Setup Benefit Types</a></li>
+                                <li><a href="enrollment.html">Benefits Enrollment</a></li>                               
+                                <li><a href="benefitsreport.html">Reports</a></li>
+                                </ul>
+                </li><!--benefits-->
+                
+                 <!--Schedule --> <li><a href="schedulemngt.html"><span class="iconsweets-month"></span>Schedule Management</a></li><!--Schedule -->
+                 
+               <!--Payroll-->  <li><a href="payroll.html"><span class=" iconsweets-pricetag"></span> Payroll USA</a></li><!--Payroll-->
+               
+			<!--Training-->	<li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;"><span class="iconsweets-book"></span> Training & Development</a>
+                	<ul >
+                   
+<li  class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Training Administration</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+<li ><a href="packages.html" >Packages</a>
+                      
+                        </li>
+<li  ><a href="course.html">Courses</a>
+                        
+                         </li>
+<li  ><a href="sessiondetails.html" >Sessions</a>
+                          
+                          </li>
+                        </ul>
+                        </li>
+                   <li  class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="trainingreport.html">Training Reports</a></li>
+                     </ul></li>
+                    </ul>
+                </li><!--Training-->
+                
+                <!--Extras--><li class="dropdown "><a href="#"><span class="iconsweets-info"></span> Spring Extras</a>
+                	<ul>
+                    	<li><a href="cal.html">Calendar</a></li> 
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="view.html">Organization Chart</a></li>
+                        	<li><a href="publishdoc.html">Documents</a></li>
+                                <li><a href="publishnews.html">News</a></li>
+                      </ul>
+                </li><!--Extras-->
+                
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!--mainleft-->
+    <!-- END OF LEFT PANEL -->
+    
+    <!-- START OF RIGHT PANEL -->
+    <div class="rightpanel">
+    	<div class="headerpanel">
+        	<a href="#" class="showmenu"></a>
+            
+            <div class="headerright">
+            	<!--dropdown-->
+               <div class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" style="color:#F39E20;">Help & Training <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span></span>Support</a></li>
+                        <li><a href="#"><span></span>Training</a></li>
+                        <li><a href="#"><span></span>Add-Ons</a></li>
+                        <li><a href="#"><span></span>Customizations</a></li>
+                         <li><a href="#"><span></span>Forum</a></li>
+                          <li><a href="#"><span></span>Blog</a></li>
+                           <li><a href="#"><span></span>Bug Tracker</a></li>
+                    </ul>
+                </div>
+                 <div class="dropdown userinfo">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Join Spring HRM Community</a>
+                </div>
+                
+                <div class="dropdown notification">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                    	<span class="iconsweets-globe iconsweets-white"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                    	<li class="nav-header">Notifications</li>                        
+                        <li><a href="#"><span class="icon-envelope"></span> New message from <strong>Jack</strong> <small class="muted"> - 19 hours ago</small></a></li>
+                        <li><a href="#"><span class="icon-envelope"></span> New message from <strong>Daniel</strong> <small class="muted"> - 2 days ago</small></a></li>
+                        <li><a href="#"><span class="icon-user"></span> <strong>Bruce</strong> is now following you <small class="muted"> - 2 days ago</small></a></li>
+                        <li class="viewmore"><a href="notifications.html">View More Notifications</a></li>
+                    </ul>
+                </div>
+                
+    			<div class="dropdown userinfo">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Hello, Administrator! <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="icon-edit"></span> Edit Profile</a></li>
+                        <li><a href="#"><span class="icon-wrench"></span> Account Settings</a></li>
+                        <li><a href="#"><span class="icon-eye-open"></span> Privacy Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.html"><span class="icon-off"></span> Sign Out</a></li>
+                    </ul>
+                </div><!--dropdown-->
+                 
+                
+            </div><!--headerright-->
+            
+    	</div><!--headerpanel-->
+        <div class="breadcrumbwidget">
+        
+        	<!--skins-->
+            <ul class="skins">
+                <li><a href="#"><img src="img/square-facebook-16.png"></a></li>
+                <li><a href="#"><img src="img/square-twitter-16.png"></a></li>
+                <li><a href="#"><img src="img/youtube_old.png"></a></li>
+            </ul>
+                                    
+        	<ul class="breadcrumb">
+                <li><a href="dashboard.html">Home</a> <span class="divider">/</span></li>
+                <li class="active">Tasking Types</li>
+            </ul>
+                        
+        </div><!--breadcrumbs-->
+      <div class="pagetitle">
+        	<h1>Edit Task Type Details</h1> <span></span>
+        </div><!--pagetitle-->
+        
+        <div class="maincontent">
+        	<div class="contentinner content-dashboard">            	                
+                <div class="row-fluid">
+                	
+                    
+                    
+                    <!--<div class="widgetcontent">	
+                       <table class="table table-bordered" id="dyntable">
+                    <colgroup>
+                        <col class="con0" style="align: center; width: 4%" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                          	<th class="head0 nosort"><input type="checkbox" class="checkall" /></th>
+                            <th class="head0">Event Title</th>
+                             <th class="head0">Start Date</th>
+                              <th class="head0">End Date</th>
+                              
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="gradeX">
+                          <td class="aligncenter"><span class="center">
+                            <input type="checkbox" />
+                          </span></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            
+                        </tr>
+                                                
+                    </tbody>
+                </table> 
+                </div>-->
+                <div class="widgetcontent">
+                    <form class="stdform" action="#" method="post">                       
+                        
+                        	<div class="span6">
+                           <p>
+                        	<label>Name</label>
+                            	<span class="field"><input type="text" name="input4" class="input-large" placeholder="" /></span> </p> 
+                                <p>
+                        	<label>Description</label>
+                            	<span class="field">
+                                	 <textarea cols="80" rows="5" name="location" class="input-xxlarge" id="location" ></textarea>
+                                </span>
+                        	</p>
+                                 <p>
+                        	<label>Default Owner
+(Blank for Participants)</label>
+                            	<span class="field"><input type="text" name="input4" class="input-large" placeholder="" /></span> </p> 
+                                 <p>
+                        	<label>Also Notify E-Mail</label>
+                            	<span class="field"><input type="text" name="input4" class="input-large" placeholder="" id="datepicker" /></span> </p> 
+                                <p>
+                        	<label>Notified Before</label>
+                            <span class="field"><input type="text" name="input4" class="input-large" placeholder="" id="datepicker" /></span> <span class="formwrapper">
+                            	<select data-placeholder="Choose Status" style="width:220px" class="chzn-select" tabindex="2" >
+                                  <option value="">Days</option> 
+                                  <option value="2">Weeks</option> 
+                        
+                                </select>
+                            </span>                           </p>
+                           <p>
+                       <div class="clearfix"></div>
+                            </div>
+                            
+                            <div class="span6">                            
+                            </div>                                                    	                           
+                        </form>
+                    	
+                    </div>
+                        
+                 
+                   
+                </div><!--row-fluid-->
+                  <p>	
+                                <span> <button class="btn btn-danger" >Add</button>
+                    <button class="btn btn-warning">Cancel</button></span>                            </p>
+            </div><!--contentinner-->
+        </div><!--maincontent-->
+        
+    </div><!--mainright-->
+    <!-- END OF RIGHT PANEL -->
+    
+    <div class="clearfix"></div>
+    
+    <div class="footer">
+    	<div class="footerleft">Spring Solutions Inc</div>
+    	<div class="footerright">&copy; Copyrights 2014</div>
+    </div><!--footer-->
+
+    
+</div><!--mainwrapper-->
+<script type="text/javascript">
+jQuery(document).ready(function(){
+								
+		// basic chart
+		var flash = [[0, 2], [1, 6], [2,3], [3, 8], [4, 5], [5, 13], [6, 8]];
+		var html5 = [[0, 5], [1, 4], [2,4], [3, 1], [4, 9], [5, 10], [6, 13]];
+			
+		function showTooltip(x, y, contents) {
+			jQuery('<div id="tooltip" class="tooltipflot">' + contents + '</div>').css( {
+				position: 'absolute',
+				display: 'none',
+				top: y + 5,
+				left: x + 5
+			}).appendTo("body").fadeIn(200);
+		}
+	
+			
+		var plot = jQuery.plot(jQuery("#chartplace2"),
+			   [ { data: flash, label: "Leave Applied", color: "#fb6409"}, { data: html5, label: "Leave Not Applied", color: "#096afb"} ], {
+				   series: {
+					   lines: { show: true, fill: true, fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.15 } ] } },
+					   points: { show: true }
+				   },
+				   legend: { position: 'nw'},
+				   grid: { hoverable: true, clickable: true, borderColor: '#ccc', borderWidth: 1, labelMargin: 10 },
+				   yaxis: { min: 0, max: 15 }
+				 });
+		
+		var previousPoint = null;
+		jQuery("#chartplace2").bind("plothover", function (event, pos, item) {
+			jQuery("#x").text(pos.x.toFixed(2));
+			jQuery("#y").text(pos.y.toFixed(2));
+			
+			if(item) {
+				if (previousPoint != item.dataIndex) {
+					previousPoint = item.dataIndex;
+						
+					jQuery("#tooltip").remove();
+					var x = item.datapoint[0].toFixed(2),
+					y = item.datapoint[1].toFixed(2);
+						
+					showTooltip(item.pageX, item.pageY,
+									item.series.label + " of " + x + " = " + y);
+				}
+			
+			} else {
+			   jQuery("#tooltip").remove();
+			   previousPoint = null;            
+			}
+		
+		});
+		
+		jQuery("#chartplace2").bind("plotclick", function (event, pos, item) {
+			if (item) {
+				jQuery("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+				plot.highlight(item.series, item.datapoint);
+			}
+		});
+
+
+		// bar graph
+		var d2 = [];
+		for (var i = 0; i <= 10; i += 1)
+			d2.push([i, parseInt(Math.random() * 30)]);
+			
+		var stack = 0, bars = true, lines = false, steps = false;
+		jQuery.plot(jQuery("#bargraph2"), [ d2 ], {
+			series: {
+				stack: stack,
+				lines: { show: lines, fill: true, steps: steps },
+				bars: { show: bars, barWidth: 0.6 }
+			},
+			grid: { hoverable: true, clickable: true, borderColor: '#bbb', borderWidth: 1, labelMargin: 10 },
+			colors: ["#06c"]
+		});
+		
+		// calendar
+		jQuery('#calendar').datepicker();
+
+
+});
+</script>
+</body>
+</html>

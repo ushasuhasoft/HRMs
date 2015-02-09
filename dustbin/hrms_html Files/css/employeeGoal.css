@@ -1,0 +1,148 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 10, 2014, 12:01:16 PM
+    Author     : orangehrm
+*/
+
+.sectionHeader h2{
+    border-bottom: 1px solid #DEDEDE;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #727272;
+    text-align: left;
+    border-style: solid;
+    border-radius: 10px;
+    color: white;
+}
+
+.toggableForm .inner{
+    display:none;
+}
+
+.blkBtn{
+    margin-left: 20px;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #000000;
+    border: medium none;
+    border-radius: 3px;
+    font-size: 15px;
+    margin-right: 4px;
+    padding: 8px 20px;
+}
+
+
+
+.blkBtn:hover{
+   background-color:#33AC3F;
+   cursor: pointer;
+}
+
+.jobTitles li label{
+    
+    width: 200px;
+}
+
+.box.toggableForm .inner{
+    border-top: 1px solid #DEDEDE;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.box.noHeader{
+    width: 100%;
+    margin: 0px;
+}
+
+.box.noHeader .inner{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.box.noHeader div.top{
+     border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+.box.noHeader div.bottom{
+     border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.box h4 {
+    border-bottom: 2px solid #DEDEDE;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 10px 0 5px;
+}
+
+#employeeGoalForm_goalTemplate_goalTplName{
+    width: 40%;
+}
+
+#employeeGoalForm_parentGoal_goalName{
+    width: 40%;
+}
+
+#bulkAssignSection{
+    margin-left: 0px;
+    
+}
+
+div.tableDiv{
+    
+    display: block;
+    float: left;
+    margin: 25px 55px 5px 0;
+    
+    width: 45%;
+}
+
+form ol li{
+    width: 100%
+}
+
+div.tableDiv ol li{
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+#bulkAssignSection  .bulkAssignCheck{
+    margin-right: 20px;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 3px;
+        
+}
+
+#bulkAssignSection .jobTitles input[type="checkbox"]{
+     position: relative;
+    bottom: 3px;
+    margin-right: 15px;
+}
+
+#bulkAssignSection label[for$="Check"] {
+    font-weight: bold;
+    font-size: 15px;
+    width: 250px;
+}
+
+#bulkAssignSection ol{
+    border-bottom: 0px;
+}
+
+.validation-error[for="employeeGoalForm_description"]{
+   top: 223px;;
+}
+

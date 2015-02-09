@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HRMS</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="prettify/prettify.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="prettify/prettify.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/jquery.smartWizard.min.js"></script>
+
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+
+    
+
+        // This function handles style and display changes for each next button click
+
+        function handleWizardNext()
+
+        {
+
+            if (document.getElementById('ButtonNext').name == 'Step2')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step3';
+
+                document.getElementById('ButtonPrevious').name = 'Step1';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonPrevious').disabled = '';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step1').style.display = 'none';
+
+                document.getElementById('Step2').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep2').style.backgroundColor = '#fbaa19';
+
+                document.getElementById('HeaderTableStep1').style.backgroundColor = 'white';
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step3')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step4';
+
+                document.getElementById('ButtonPrevious').name = 'Step2';
+
+                document.getElementById('Step2').style.display = 'none';
+
+                document.getElementById('Step3').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep3').style.backgroundColor = '#fbaa19';
+
+                document.getElementById('HeaderTableStep2').style.backgroundColor = 'white';
+
+            }
+
+            else if (document.getElementById('ButtonNext').name == 'Step4')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = '';
+
+                document.getElementById('ButtonPrevious').name = 'Step4';
+				
+				 // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonNext').disabled = 'disabled';
+
+                document.getElementById('SubmitFinal').disabled = '';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step3').style.display = 'none';
+
+                document.getElementById('Step4').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep4').style.backgroundColor = '#fbaa19';
+
+                document.getElementById('HeaderTableStep3').style.backgroundColor = 'white';
+ // Load table elements for final review step
+
+                loadStep5Review();
+            }
+
+            
+
+        }
+
+        
+
+        // This function handles style and display changes for each previous button click
+
+        function handleWizardPrevious()
+
+        {
+
+            if (document.getElementById('ButtonPrevious').name == 'Step1')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step2';
+
+                document.getElementById('ButtonPrevious').name = '';
+
+                // Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonPrevious').disabled = 'disabled';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step2').style.display = 'none';
+
+                document.getElementById('Step1').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep1').style.backgroundColor = '#fbaa19';
+
+                document.getElementById('HeaderTableStep2').style.backgroundColor = 'white';
+
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step2')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step3';
+
+                document.getElementById('ButtonPrevious').name = 'Step1';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step3').style.display = 'none';
+
+                document.getElementById('Step2').style.display = '';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep2').style.backgroundColor = '#fbaa19';
+
+                document.getElementById('HeaderTableStep3').style.backgroundColor = 'white';
+
+            }
+
+            else if (document.getElementById('ButtonPrevious').name == 'Step3')
+
+            {
+
+                // Change the button name - we use this to keep track of which step to display on a click
+
+                document.getElementById('ButtonNext').name = 'Step4';
+
+                document.getElementById('ButtonPrevious').name = 'Step2';
+				
+				// Disable/enable buttons when reach reach start and review steps
+
+                document.getElementById('ButtonNext').disabled = '';
+
+                document.getElementById('SubmitFinal').disabled = 'disabled';
+
+                // Set new step to display and turn off display of current step
+
+                document.getElementById('Step4').style.display = 'none';
+
+                document.getElementById('Step3').style.display = 'none';
+
+                // Change background color on header to highlight new step
+
+                document.getElementById('HeaderTableStep3').style.backgroundColor = '#fbaa19';
+
+                document.getElementById('HeaderTableStep4').style.backgroundColor = 'white';
+
+            }
+
+           
+
+        }
+
+        
+
+        // This function handles loading the review table innerHTML for the user to review before final submission
+
+        function loadStep5Review()
+
+        {
+
+            // Assign values to appropriate cells in review table
+
+            document.getElementById('ReviewFirstName').innerHTML = document.getElementById('TextFirstName').value;
+
+            document.getElementById('ReviewMiddleName').innerHTML = document.getElementById('TextMiddleName').value;
+
+            document.getElementById('ReviewLastName').innerHTML = document.getElementById('TextLastName').value;
+
+            document.getElementById('ReviewEmail').innerHTML = document.getElementById('TextEmail').value;
+
+            // Indicate Yes or No based on subscription checkbox checked
+
+            if (document.getElementById('CheckboxHtmlGoodies').checked == 1)
+
+            {
+
+                document.getElementById('ReviewHtmlGoodies').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewHtmlGoodies').innerHTML = 'No';
+
+            }
+
+            if (document.getElementById('CheckboxJavaScript').checked == 1)
+
+            {
+
+                document.getElementById('ReviewJavaScript').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewJavaScript').innerHTML = 'No';
+
+            }
+
+            if (document.getElementById('CheckboxWdvl').checked == 1)
+
+            {
+
+                document.getElementById('ReviewWdvl').innerHTML = 'Yes';
+
+            }
+
+            else
+
+            {
+
+                document.getElementById('ReviewWdvl').innerHTML = 'No';
+
+            }
+
+            // Special case to display password as asterisks
+
+            var iCounter = 1;
+
+            var iCharacterCount = document.getElementById('TextPassword').value.length;
+
+            var passwordMasked = '';
+
+            for (iCounter = 1; iCounter <= iCharacterCount; iCounter++)
+
+            {
+
+                passwordMasked = passwordMasked + '*';
+
+            }
+
+            document.getElementById('ReviewPassword').innerHTML = passwordMasked;
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+<div class="mainwrapper fullwrapper" style="background-position: 0px 0px;">
+	
+    <!-- START OF LEFT PANEL -->
+    <div class="leftpanel">
+    	
+        <div class="logopanel">
+        	<h1><a href="dashboard.html"><img src="img/logonew.png"></a></h1>
+        </div><!--logopanel-->
+        
+        <div class="datewidget">Today is Tuesday, Oct 14, 2014 </div>
+    
+    	<div class="searchwidget">
+        	<form action="#" method="post">
+            	<div class="input-append">
+                    <input type="text" class="span2 search-query" placeholder="Search here...">
+                    <button type="submit" class="btn"><span class="icon-search"></span></button>
+                </div>
+            </form>
+        </div><!--searchwidget-->
+        
+        <div class="plainwidget">
+        	<small>Reminder !! Admin </small>
+        	<div class="progress progress-info">
+                <div class="bar" style="width: 20%"></div>
+            </div>
+            <small><strong>38% John Profile Completeness</strong></small>
+        </div><!--plainwidget-->
+        
+       
+        <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+            	<li class="nav-header" style="text-shadow: none;color: white;background: linear-gradient(to bottom, #8A8A8A 0%,#8A8A8A 100%);border-top: 1px solid #bbb;">Menu</li>
+                <li class="active"><a href="#" onClick="location.href='dashboard.html'"><span class="icon-align-justify"></span> Dashboard</a></li>
+               <!--Spring admin--> <li class=" dropdown "><a href="#"><span class="iconsweets-admin"></span>Spring Admin</a>
+            <ul>
+        <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">User Management</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+                        	<li><a href="user.html">Users</a></li>
+                            <li><a href="userroles.html">User Roles</a></li>
+                        </ul>                        
+       </li>
+         <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Spring Tools</a>
+         
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="emailsettings.html">Email Settings</a></li>
+                                <li><a href="emailsubscriptions.html">Email Subscriptions</a></li>
+                                <li><a href="localization.html">Localization</a></li>                               
+                                <li><a href="notifications.html">Notifications</a></li>
+                                <li><a href="openid.html">OpenID</a></li>
+                                <li><a href="authentication.html">Authentication</a></li>
+                                <li><a href="ldap.html">LDAP</a></li>
+                            </ul>	
+          </li>
+                        <li ><a href="audittrail.html">Audit Trail</a></li>
+                        <li><a href="Audit.html">Auditing</a></li>
+                        <li><a href="backup.html">Back Ups</a></li>
+              <li class="dropdown"><a href="#"style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Delete</a>
+                         <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="deleteemp.html">Delete All Employees Data</a></li>
+                            <li><a href="deletetimeoff.html">Delete All Time Off</a></li>
+                            <li><a href="deletedata.html">Delete All Data</a></li>
+                            <li><a href="deleteaccount.html">Delete Account</a></li>
+                          </ul>
+              </li>
+              <li class="dropdown"><a href="#"style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Settings</a>
+             <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                          		<li><a href="social.html">Social Settings</a></li>
+                          
+                          		<li><a href="security.html">Security Settings</a></li>
+                          </ul>
+              </li>
+                          <li><a href="account.html">Manage My Account</a></li>
+      </ul>
+      </li><!--Spring admin-->
+      
+              <!--Core Hr--><li class="dropdown"><a href="#"><span class="iconsweets-suitcase"></span>Core HR</a>
+                	<ul>
+           <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Org Data</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="organization-info.html">General Information</a></li>
+                            	<li><a href="org-location.html">Location</a></li>
+                                <li><a href="orgchart.html">Department Structure</a></li>
+                                 <li><a href="config.html">Setup Org Chart</a></li>
+                                  <li><a href="define.html">Setup Hierarchy</a></li>
+                                   <li><a href="view.html">View Org Chart</a></li>
+                            	</ul>	
+           </li>   
+               
+     <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Core HR</a>
+                 <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                    	<li><a href="optionalfields.html">Optional Fields</a></li>
+                        <li><a href="custom.html">Custom Fields</a></li>
+                        <li><a href="data.html">Data Import</a></li>
+                        <li><a href="rporting.html">Reporting Methods</a></li>
+                        <li><a href="terminationreason.html">Termination Reasons</a></li>
+                 </ul>
+     </li>
+       <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Job Data</a>
+                         <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="jobtitle.html">Job Titles</a></li>
+                                <li><a href="salarycomp.html">Salary Components</a></li>
+                                <li><a href="paygrades.html">Pay Grades</a></li>
+                                <li><a href="employmentstatus.html">Employement Status</a></li>
+                                <li><a href="jobcategories.html">Job Categories</a></li>
+                                <li><a href="workshifts.html">Work Shifts</a></li>
+                         </ul>                        
+        </li>
+                        
+          <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Credentials</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="skills.html">Skills</a></li>
+                                <li><a href="licenses.html">Licenses</a></li>
+                                <li><a href="education.html">Education</a></li>
+                                <li><a href="languages.html">Languages</a></li>
+                                <li><a href="memberships.html">Memberships</a></li>
+                            </ul>	
+         </li>
+                         <li><a href="nationalities.html">Setup Nationalities</a></li>
+     <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup News & Documents</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                                <li><a href="news.html">News</a></li>
+                                <li><a href="news-categories.html">News Categories</a></li>
+                                <li><a href="documents.html">Documents</a></li>
+                                <li><a href="document-categories.html">Document Categories</a></li>
+                            </ul>	
+      </li>
+      <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Onboarding</a>
+                        <ul style="text-indent:20px;  background-color:#f7f7f7;"> 
+                        		<li><a href="tasking.html">Tasking Types</a></li>
+                        		<li><a href="events.html">Events</a></li>
+                        </ul>
+      </li>
+                        
+ <li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Equipment</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="brands.html">Brand Information</a></li>
+                                <li><a href="categories.html">Categories</a></li>   
+                                <li><a href="assets.html">Equipment Assignment</a></li>
+                               <li><a href="vendors.html">Vendors</a></li>
+                            </ul>	
+  </li>
+  
+  </ul>
+  </li><!--Core HR-->
+  
+           <!--Hr Reports--> <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;"> <span class="iconsweets-list4"></span>HR Reports</a>
+                        <ul>
+   							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Onboarding Reports</a>
+                        				<ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        					<li><a href="eventpro.html">Event Progress</a></li>
+                        					<li><a href="participant.html">Participant Progress</a></li>
+                        		       </ul>
+     						</li>
+    						<li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Reports</a>
+                    				<ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        				<li><a href="employeereport.html">Employee Report</a></li>
+                        				<li><a href="headcount.html">Head Count Report</a></li>
+                        				<li><a href="licenseexpiry.html">License Expiration Report</a></li>
+                        				<li><a href="turnoverhiring.html">Turnover Hiring Report</a></li>
+                        				<li><a href="turnovertermination.html">Turnover Termination Report</a></li>
+                        				<li><a href="Employeediversityreport.html">Employee Diversity Report</a></li>
+                        				<li><a href="Employeecustomfields.html">Employee Custom Fields</a></li>
+                    				</ul>
+     </li>
+     						 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Management Reports</a>
+                 <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="jobhistoryreport.html">Employee Job History</a></li>
+                        <li><a href="hiresreport.html">New Hires Report</a></li>
+                        <li><a href="empterminationreport.html">Employee Termination Date</a></li>
+                        <li><a href="employeelistreport.html">Employee List Report</a></li>
+                        <li><a href="Employeecontactlistreport.html">Employee Contact List Report</a></li>
+                        <li><a href="Employeeemergencycontactreport.html">Emergency Contact Report</a></li>
+                        <li><a href="Employeetimesheetreport.html">Employee Timesheet Report</a></li>
+                        <li><a href="Employeelengthofservicereport.html">Length of Service Report</a></li>
+                        <li><a href="Employeeworkcontactreport.html">Employee Work Contact Report</a></li>
+                        <li><a href="Employeestartdate.html">Employee Start Date</a></li>
+                      	<li><a href="Mandatorydocuments.html">Mandatory Documents</a></li>
+                 </ul>
+     </li>
+    						 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Performance Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        	 <li><a href="appsummary.html">Appraisal Summary Report</a></li>
+                        	 <li><a href="warningreport.html">Performance Warnings Report</a></li>
+                        </ul>
+   </li>
+  							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Talent Management Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                           <li><a href="succession.html">Vacancy Succession Report</a></li>
+                           <li><a href="vacancy.html">Job Opening Report</a></li>
+                           <li><a href="research.html">Candidates Report</a></li>
+                        </ul>
+  </li>
+  							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Training Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                         <li><a href="trainingreport.html">Training Report</a></li>
+                        </ul>
+   </li>
+ 							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Time & Attendance Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        		<li><a href="projectreports.html">Projects Reports</a></li>
+                                <li><a href="empreports.html">Employee Reports</a></li>
+                                <li><a href="attendance.html">Attendance Summary</a></li>
+                        </ul>
+  </li>
+   							 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Organizational Reports</a>
+                        <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                          	<li><a href="Agechart.html">Age Chart</a></li>
+                        	<li><a href="gender.html">Gender Chart</a></li>
+                        	<li><a href="departmentchart.html">Department Chart</a></li>
+                        	<li><a href="jobrolechart.html">Job Title Chart</a></li>
+                         	<li><a href="locationchart.html">Location Chart</a></li>
+                       		<li><a href="managerchart.html">Manager Chart</a></li>
+                        	<li><a href="jobstatuschart.html">Job Status Chart</a></li>
+                        	<li><a href="orgchart.html">Organizational Chart</a></li>
+                        </ul>
+   </li>
+    						 <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Financial Reports</a>
+                     <ul  style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="costreport.html">Employee Costs Report</a></li>
+                   		<li><a href="depositdetails.html">Direct Deposit Details Report</a></li>
+                        <li><a href="recriutreport.html">Recruitment Costs Report</a></li>
+                     </ul>
+    </li>
+               <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                       			<li><a href="usagereport.html">Leave Balances & Usage Report</a></li>
+                                <li><a href="leavepercentage.html">Leave Percentage Report</a></li>
+                        </ul>
+                 </li>
+                    </ul>
+                </li><!--Hr Reports-->
+                
+              <!--Emp--> <li class="dropdown"><a href="#"><span class="iconsweets-users"></span> Employees</a>
+                 <ul>
+                 <li><a href="add-employee.html">Add Employee</a></li>
+                   <li><a href="employee-list.html">Employee Profile</a></li>
+                  <li><a href="bulkupdate.html">Mass Update</a></li>
+               <li><a href="assets.html">Equipment Assignment</a></li>
+               
+<li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Reports</a>
+                        <ul>
+                        <li><a href="employeereport.html">Employee Report</a></li>
+                        <li><a href="headcount.html">Head Count Report</a></li>
+                        <li><a href="licenseexpiry.html">License Expiration Report</a></li>
+                        <li><a href="turnoverhiring.html">Turnover Hiring Report</a></li>
+                        <li><a href="turnovertermination.html">Turnover Termination Report</a></li>
+</ul>
+                        </li>
+                </ul>
+                </li><!--Emp-->
+                
+              <!--Self--> <li class="dropdown"> <a href="#"><span class=" iconsweets-cog2" ></span> Self Service</a>
+                	<ul>
+                    	
+                        <li><a href="edit-profile.html">Personal Information</a></li>
+ <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Time Tracking</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="timesheet.html">Timesheet</a></li>
+                        <li><a href="timesheet.html">Clock In/Out</a></li>
+                        <li><a href="time-offrequest.html">Time-Off Request</a></li>
+                        <li><a href="time-offrequest.html">Work Schedule</a></li>
+                        <li><a href="time-offrequest.html">Request Schedule Change</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Performance Reviews</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="myreviews.html">Appraisals</a></li>
+                                <li><a href="reviewfeedback.html">Peer Reviews</a></li>
+                                 <li><a href="mywarning.html">Warnings</a></li>
+                            </ul>	
+                        </li>
+        <li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Training</a>
+                          <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="Courses.html">Training Courses</a></li>
+                                <li><a href="trainingreq.html">Training Requests</a></li>
+                            </ul>	
+                        </li>
+                            <li><a href="#">Benefits</a>
+                            <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="benefits.html">Benefit Information</a></li>
+                           </ul>
+                            </li>
+                   <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Payroll</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="directdeposit.html">Direct Deposit Information</a></li>
+                                <li><a href="payadvice.html">Pay Checks</a></li>
+                            </ul>	
+                        </li>
+                              <li><a href="kudos.html">Props</a></li>
+                    </ul>
+                </li><!--Self-->
+                
+                <!--Performance--> <li class="dropdown"><a href="#"><span class="iconsweets-cup"></span>Performance Management</a>
+                	<ul>
+                    	<li><a href="manage.html"> Setup Reviewers</a></li>
+                           <li><a href="emptrackers.html">Employee Reviewers</a></li>
+        <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Competencies</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="competency.html">Competencies</a></li>
+                            <li><a href="compmapping.html">Competencies Mapping</a></li>
+                            </ul> 
+                            </li>
+             <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Goals</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="goallist.html">Employee Goals</a></li>
+                          </ul> 
+                            </li>
+    <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Employee Appraisals</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="empappraisal.html">Employee Appraisals</a></li>
+                          </ul> 
+                            </li>
+    <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Appraisals</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                      <li><a href="appraisal.html">Appraisals</a></li>
+                           
+                            </ul> 
+                            </li>
+                            
+  <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                            <li><a href="appsummary.html">Appraisal Summary Report</a></li>
+                        <li><a href="warningreport.html">Performance Warnings Report</a></li>
+                           </ul> 
+                            </li>
+                    </ul>
+                </li><!--Performance-->
+                
+                <!--Talent management--><li class="dropdown"><a href="#"><span class=" iconsweets-lightbulb"></span> Talent Management</a>
+                	<ul>
+                        <li><a href="candidate.html">Candidates</a></li>
+                         <li><a href="vacancy.html">Job Openings</a></li>
+                         
+                         
+         <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Questions</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                      <li><a href="tags.html">Interview Question Tags</a></li>
+                            <li><a href="pools.html">Interview Questions</a></li>
+                            </ul> 
+                            </li>
+             <li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                            <ul style="text-indent:20px;  background-color:#f7f7f7;">
+                        <li><a href="succession.html">Vacancy Succession Report</a></li>
+                           <li><a href="research.html">Candidates Report</a></li>
+                            <li><a href="vacancy.html">Job Opening Report</a></li>
+                            </ul> 
+                            </li>
+              </ul>
+                </li><!--Talent management-->
+                
+				<!--time--> <li class="dropdown "><a href="#"><span class="iconsweets-timer"></span>Time & Attendance</a>
+                	<ul>
+<li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Timesheets</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="timesheets.html">Timesheets</a></li>
+                                <li><a href="eporttime.html">Export to Timesheets</a></li>
+                            </ul>	
+                        </li>
+                    
+<li class="dropdown "><a href="assets.html" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Attendance</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="attendancerecords.html">Attendance</a></li>
+                                <li><a href="attendanceconfig.html">Setup Time & Attendance</a></li>
+                                <li><a href="cvs.html">Export Attendance </a></li>
+                                <li><a href="dataupload.html">Import Attendance</a></li>
+                            </ul>	
+                        </li>
+                  <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                            <li><a href="projectreports.html">Projects Reports</a></li>
+                                <li><a href="empreports.html">Employee Reports</a></li>
+                                <li><a href="attendance.html">Attendance Summary</a></li> 	
+                            </ul>	
+                        </li>
+<li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Project</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="customersinfo.html">Customer</a></li>
+                                <li><a href="projectsinfo.html">Projects Information</a></li>
+                            </ul>	
+                        </li>
+               </ul>
+                </li><!--Time-->
+                
+               <!--leave--> <li class="dropdown "><a href="#"><span class="iconsweets-alert"></span>Leave Management</a>
+                	<ul>
+  <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Leave Balances</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="addentitlement.html">Leave Information</a></li>
+                                <li><a href="employeeentitlements.html">Employee Leave</a></li>
+                            </ul>	
+                        </li>
+                         <li><a href="leavelist.html">Leave Approval Report</a></li>
+                                <li><a href="assignleave.html">Leave Request</a></li>
+                                <li><a href="leavecal.html">Leave Calendar</a></li>
+                    
+<li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             <li><a href="usagereport.html">Leave Balances & Usage Report</a></li>
+                                <li><a href="leavepercentage.html">Leave Percentage Report</a></li>
+                            </ul>	
+                        </li>
+                        
+<li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Setup Leave</a>
+                        	 <ul style="text-indent:20px; background-color:#f7f7f7;">
+                             	<li><a href="leaveperiod.html">Leave Period</a></li>
+                                <li><a href="leavetypes.html">Leave Types</a></li>
+ <li class="dropdown "><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Leave Rules</a><ul>
+                               <li><a href="leaverule.html">General page</a></li>
+                                <li><a href="canapply.html">Who can apply page</a></li>
+                                <li><a href="assignrestiction.html">Apply/Assign Restrictions page</a></li>                               
+                                <li><a href="accural.html">Accural Rule page</a></li>
+                                 <li><a href="carryrules.html">Carry Forward Rule page</a></li>
+                                 </ul></li>
+                                <li><a href="work.html">Work Week</a></li>
+                                <li><a href="holidays.html">Holidays</a></li>                               
+                                <li><a href="confignotifications.html">Notifications</a></li>
+                            </ul>	
+                        </li>
+                       
+                    </ul>
+                </li><!--leave-->
+                
+               <!--Benefits --> <li><a href="payroll.html"><span class="iconsweets-create"></span>Benefits Administration</a>
+                <ul>
+                               <li><a href="benefits.html">Setup Benefits Programs</a></li>
+                                <li><a href="benefitstypes.html">Setup Benefit Types</a></li>
+                                <li><a href="enrollment.html">Benefits Enrollment</a></li>                               
+                                <li><a href="benefitsreport.html">Reports</a></li>
+                                </ul>
+                </li><!--benefits-->
+                
+                 <!--Schedule --> <li><a href="schedulemngt.html"><span class="iconsweets-month"></span>Schedule Management</a></li><!--Schedule -->
+                 
+               <!--Payroll-->  <li><a href="payroll.html"><span class=" iconsweets-pricetag"></span> Payroll USA</a></li><!--Payroll-->
+               
+			<!--Training-->	<li class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;"><span class="iconsweets-book"></span> Training & Development</a>
+                	<ul >
+                   
+<li  class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Training Administration</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+<li ><a href="packages.html" >Packages</a>
+                      
+                        </li>
+<li  ><a href="course.html">Courses</a>
+                        
+                         </li>
+<li  ><a href="sessiondetails.html" >Sessions</a>
+                          
+                          </li>
+                        </ul>
+                        </li>
+                   <li  class="dropdown"><a href="#" style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position: right center;">Reports</a>
+                        <ul style="text-indent:20px; background-color:#f7f7f7;">
+                        <li><a href="trainingreport.html">Training Reports</a></li>
+                     </ul></li>
+                    </ul>
+                </li><!--Training-->
+                
+                <!--Extras--><li class="dropdown "><a href="#"><span class="iconsweets-info"></span> Spring Extras</a>
+                	<ul>
+                    	<li><a href="cal.html">Calendar</a></li> 
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="view.html">Organization Chart</a></li>
+                        	<li><a href="publishdoc.html">Documents</a></li>
+                                <li><a href="publishnews.html">News</a></li>
+                      </ul>
+                </li><!--Extras-->
+                
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!--mainleft-->
+    <!-- END OF LEFT PANEL -->
+    
+    <!-- START OF RIGHT PANEL -->
+    <div class="rightpanel">
+    	<div class="headerpanel">
+        	<a href="#" class="showmenu"></a>
+            
+            <div class="headerright">
+            	<!--dropdown-->
+               <div class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" style="color:#F39E20;">Help & Training <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span></span>Support</a></li>
+                        <li><a href="#"><span></span>Training</a></li>
+                        <li><a href="#"><span></span>Add-Ons</a></li>
+                        <li><a href="#"><span></span>Customizations</a></li>
+                         <li><a href="#"><span></span>Forum</a></li>
+                          <li><a href="#"><span></span>Blog</a></li>
+                           <li><a href="#"><span></span>Bug Tracker</a></li>
+                    </ul>
+                </div>
+                 <div class="dropdown userinfo">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Join Spring HRM Community</a>
+                </div>
+                
+                <div class="dropdown notification">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                    	<span class="iconsweets-globe iconsweets-white"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                    	<li class="nav-header">Notifications</li>                        
+                        <li><a href="#"><span class="icon-envelope"></span> New message from <strong>Jack</strong> <small class="muted"> - 19 hours ago</small></a></li>
+                        <li><a href="#"><span class="icon-envelope"></span> New message from <strong>Daniel</strong> <small class="muted"> - 2 days ago</small></a></li>
+                        <li><a href="#"><span class="icon-user"></span> <strong>Bruce</strong> is now following you <small class="muted"> - 2 days ago</small></a></li>
+                        <li class="viewmore"><a href="notifications.html">View More Notifications</a></li>
+                    </ul>
+                </div>
+                
+    			<div class="dropdown userinfo">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Hello, Administrator! <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="icon-edit"></span> Edit Profile</a></li>
+                        <li><a href="#"><span class="icon-wrench"></span> Account Settings</a></li>
+                        <li><a href="#"><span class="icon-eye-open"></span> Privacy Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.html"><span class="icon-off"></span> Sign Out</a></li>
+                    </ul>
+                </div><!--dropdown-->
+                 
+                
+            </div><!--headerright-->
+            
+    	</div><!--headerpanel-->
+        <div class="breadcrumbwidget">
+        
+        	<!--skins-->
+            <ul class="skins">
+                <li><a href="#"><img src="img/square-facebook-16.png"></a></li>
+                <li><a href="#"><img src="img/square-twitter-16.png"></a></li>
+                <li><a href="#"><img src="img/youtube_old.png"></a></li>
+            </ul>
+            
+        	<ul class="breadcrumb">
+                <li><a href="dashboard.html">Home</a> <span class="divider">/</span></li>
+                <li class="active">Reporting</li>
+            </ul>
+        </div><!--breadcrumbs-->
+      <div class="pagetitle">
+        	<h1>Employee List Report</h1> <span></span>
+        </div><!--pagetitle-->
+        
+        <div class="maincontent">
+        	<div class="contentinner"> 
+            <h4 class="widgettitle">Tabbed Wizard</h4>
+            <div class="widgetcontent">
+                	<!-- START OF DEFAULT WIZARD -->
+                    <form class="stdform" action="" method="post">
+ <div id="wizard2" class="wizard tabbedwizard">
+    
+<ul class="tabbedmenu anchor">
+<li >
+<a href="#" class="selected" isdone="1" rel="1" id="HeaderTableStep1" style="background-color:#fbaa19;">
+<span class="h2">STEP 1</span>
+<span class="label">Employee</span>
+</a> 
+</li>
+<li >
+<a href="#" class="selected" isdone="1" rel="1" id="HeaderTableStep2" style="background-color:white ">
+<span class="h2">STEP 2</span>
+<span class="label">Taxes</span>
+</a> 
+</li>
+<li >
+<a href="#" class="selected" isdone="1" rel="1" id="HeaderTableStep3" style="background-color:white">
+<span class="h2">STEP 3</span>
+<span class="label"> Prior Payrolls</span>
+</a> 
+</li>
+<li >
+<a href="#" class="selected" isdone="1" rel="1" id="HeaderTableStep4" style="background-color:white">
+<span class="h2">STEP 4</span>
+<span class="label">  Pay Employees</span>
+</a> 
+</li>
+</ul>
+
+<br />
+<div class="stepContainer" style="height: 211px;">
+<span id="Step1"><strong>
+<table class="table">
+  <colgroup>
+                        <col class="con0" style="align: center; width: 4%" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                    <th>First name:</th>
+                    <th></th>
+                     <th>Last name:</th>
+                      <th>Status</th>
+                      <th>Pay Info</th>
+                      <th></th>
+                    </thead>
+                    <tbody>
+ <tr>
+<td><input id="TextFirstName" class="input-medium" name="FirstName" type="text" placeholder="xxxx"  /></td>
+<td></td>
+<td><input id="TextMiddleName" name="MiddleName" class="input-medium" type="text" placeholder="yyyy"  /></td>
+<td><a href="#">Done</a></td>
+<td><button class="btn btn-danger" onClick="location.href='edit-info.html'">Edit Info</button></td>
+<td><a href="#"><i class="iconsweets-trashcan"></i></a></td>
+</tr>
+<tr>
+<td><input id="TextFirstName" class="input-medium" name="FirstName" type="text" /></td>
+<td></td>
+<td><input id="TextMiddleName" name="MiddleName" class="input-medium" type="text" /></td>
+<td><a href="#">Pending</a></td>
+<td><button class="btn btn-warning" onClick="location.href='enter-info.html'">Enter Info</button></td>
+<td><a href="#"><i class="iconsweets-trashcan"></i></a></td>
+</tr>
+</tbody>
+</table>
+
+
+</span>
+<span id="Step2"  style="display:none">
+<h4 class="widgettitle">Prep for Taxes</h4>
+Now we'll ask you for info that the IRS and state agencies need. 
+<table border="0" cellpadding="5" cellspacing="0" class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Business Name</th>
+</thead>
+<tr>
+<td ><strong>What business name do you use when filing tax forms (filing name)?</strong></td>
+<td ><input class="input-xxlarge" type="text" /></td>
+</tr>
+</table>
+<table  class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Business Address</th>
+</thead>
+<tr>
+<td ><strong>What address do you use when filing tax forms (filing address)?</strong></td>
+<td ><input class="input-small" type="Checkbox" />Same as business address</td>
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Payroll Date</th>
+</thead>
+<tr>
+<td ><strong>When will you first be running payroll with Intuit Online Payroll?</strong></td>
+<td ><input class="input-xxlarge" type="radio" />Before Jan 1, 2015</td>
+<td ><input class="input-xxlarge" type="radio" />On or after Jan 1, 2015</td>
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Hire Date</th>
+</thead>
+<tr>
+<td ><strong>Did you hire your first employee within the last six months?</strong></td>
+<td ><input class="input-xxlarge" type="radio" />Yes</td>
+<td ><input class="input-xxlarge" type="radio" />No</td>
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Previous Owner</th>
+</thead>
+<tr>
+<td ><strong>Did you buy your business from a previous owner?</strong></td>
+<td ><input class="input-xxlarge" type="radio" />Yes</td>
+<td ><input class="input-xxlarge" type="radio" />No</td>
+</tr>
+</table>
+
+<h4 class="widgettitle">Federal Tax Information</h4>
+
+<table  class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Federal Employer Identification Number</th>
+</thead>
+<tr>
+<td ><strong>Do you know your federal Employer Identification Number (EIN)?</strong></td>
+<td ><input class="input-small" type="Radio" />Yes, It is <input id="TextFirstName" class="input-small" name="FirstName" type="text" />12-3456789</td>
+<td ><input class="input-small" type="Radio" />No,  I haven't received it yet, or don't have it handy</td>
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Payroll Tax Form</th>
+</thead>
+<tr>
+<td ><strong>Which payroll tax form do you file with the IRS? </strong></td>
+<td ><p>
+                        	
+                            	<span class="field">
+                                	 <select name="select" class="input-large">
+                                	<option value="" selected="selected">Form 941 each quarter(most common)</option>
+                                	<option value="2">Form 944 once a year(not common)</option>
+                                    <option value="3">I'm not Sure</option>
+                               </select>
+                                </span>
+                        	</p></td>
+
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Deposit Schedule</th>
+</thead>
+<tr>
+<td ><strong>How often does the IRS require you to pay federal taxes (your deposit schedule)?</strong></td>
+<td ><p>
+                        	
+                            	<span class="field">
+                                	 <select name="select" class="input-large">
+                                	<option value="" selected="selected">After Each payroll</option>
+                                	<option value="2">On the 15th of each month</option>
+                                    <option value="3">At the end of each quarter</option>
+                                    <option value="4">Anually</option>
+                                     <option value="5">I'm not Sure</option>
+                               </select>
+                                </span>
+                        	</p></td>
+
+</tr>
+</table>
+<table  class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>501(c)(3) Non-Profits</th>
+</thead>
+<tr>
+<td ><strong>Is your business a 501(c)(3) non-profit?</strong></td>
+<td ><input class="input-small" type="Radio" />Yes, and I don't pay federal unemployment taxes (FUTA) </td>
+<td ><input class="input-small" type="Radio" />No(most common) </td>
+</tr>
+</table>
+
+<h4 class="widgettitle">State Tax Information</h4>
+
+<table border="0" cellpadding="5" cellspacing="0" class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>UI Employer Registration Number</th>
+</thead>
+<tr>
+<td ><strong>Do you know your New York UI Employer Registration Number?</strong></td>
+<td ><input class="input-small" type="Radio" />Yes, it is<input class="input-small" type="text" />12345678</td>
+<td ><input class="input-small" type="Radio" />No, I haven't received it yet, or don't have it handy</td>
+</tr>
+</table>
+<table  class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Withholding Identification Number</th>
+</thead>
+<tr>
+<td ><strong>Do you know your New York Withholding Identification Number?</strong></td>
+<td ><input class="input-small" type="Radio" />Yes, it is<input class="input-small" type="text" />123456789</td>
+<td ><input class="input-small" type="Radio" />No, I haven't received it yet, or don't have it handy</td>
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>State Unemployment Insurance</th>
+</thead>
+<tr>
+<td ><strong>Do you know what SUI (State Unemployment insurance) rate New York assigned to your business?</strong></td>
+<td ><input class="input-small" type="Radio" />Yes, it is<input class="input-small" type="text" />2.025 to 9.825%</td>
+<td ><input class="input-small" type="Radio" />No, please use 9.825% for now</td>
+</tr>
+</table>
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Reemployment Service Fund</th>
+</thead>
+<tr>
+<td ><strong>What Reemployment Service Fund rate did New York assign to your business?</strong></td>
+<td ><p>
+                        	
+                            	<span class="field">
+                                	 <select name="select" class="input-small">
+                                	<option value="" selected="selected">0.075%</option>
+                                	<option value="2">0.0%</option>
+                                  </select>
+                                </span>
+                        	</p></td>
+</tr>
+</table>
+
+<table class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Deposit Schedule</th>
+</thead>
+<tr>
+<td ><strong>How often does New York require you to pay state taxes (your deposit schedule)?  </strong></td>
+<td>
+<p>
+                        	
+                            	<span class="field">
+                                	 <select name="select" class="input-large">
+                                	<option value="" selected="selected">(Choose one)</option>
+                                	<option value="2">3 Days After Payroll</option>
+                                    <option value="3">5 Days After Payroll</option>
+                                    <option value="5">I'm not Sure</option>
+                               </select>
+                                </span>
+                        	</p>
+                            </td>
+</tr>
+</table>
+
+
+</span>
+
+<span id="Step3" style="display:none">
+<table border="0" cellpadding="5" cellspacing="0" class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Prior Payrolls</th>
+</thead>
+<tr>
+<td ><strong>You've told us you haven't paid any employees this year, so this isn't needed.</strong></td>
+
+</tr>
+</table>
+
+</span>
+
+<span id="Step4" style="display:none">
+
+
+<table border="0" cellpadding="5" cellspacing="0" class="table">
+  <colgroup>
+                      
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+<thead>
+<th>Pay Employees</th>
+</thead>
+<tr>
+<td ><strong>Congratulations! You've finished setting up your first payroll, so let's start paying employees.</strong></td>
+
+</tr>
+</table>
+
+</span>
+
+
+</div>
+<br /> 
+<table border="0" cellpadding="5" cellspacing="0">
+<tr>
+<td><button id="ButtonPrevious" disabled="disabled" class="btn btn-warning" type="button" name="" onClick="handleWizardPrevious()" >Previous</button></td>
+<td><button id="ButtonNext" class="btn btn-warning" type="button" name="Step2" onClick="handleWizardNext()" >Continue</button></td>
+<td><button id="SubmitFinal" class="btn btn-warning" type="submit" name="Finish" disabled="disabled" >Finish</button></td>
+</tr>
+</table>   
+
+</div>
+</form>
+                    <!-- END OF DEFAULT WIZARD -->
+                </div>           	                
+               
+            </div><!--contentinner-->
+        </div><!--maincontent-->
+        
+    </div><!--mainright-->
+    <!-- END OF RIGHT PANEL -->
+    
+    <div class="clearfix"></div>
+    
+    <div class="footer">
+    	<div class="footerleft">Spring Solutions Inc</div>
+    	<div class="footerright">&copy; Copyrights 2014</div>
+    </div><!--footer-->
+
+    
+</div><!--mainwrapper-->
+<script type="text/javascript">
+jQuery(document).ready(function(){
+								
+		// basic chart
+		var flash = [[0, 2], [1, 6], [2,3], [3, 8], [4, 5], [5, 13], [6, 8]];
+		var html5 = [[0, 5], [1, 4], [2,4], [3, 1], [4, 9], [5, 10], [6, 13]];
+			
+		function showTooltip(x, y, contents) {
+			jQuery('<div id="tooltip" class="tooltipflot">' + contents + '</div>').css( {
+				position: 'absolute',
+				display: 'none',
+				top: y + 5,
+				left: x + 5
+			}).appendTo("body").fadeIn(200);
+		}
+	
+			
+		var plot = jQuery.plot(jQuery("#chartplace2"),
+			   [ { data: flash, label: "Leave Applied", color: "#fb6409"}, { data: html5, label: "Leave Not Applied", color: "#096afb"} ], {
+				   series: {
+					   lines: { show: true, fill: true, fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.15 } ] } },
+					   points: { show: true }
+				   },
+				   legend: { position: 'nw'},
+				   grid: { hoverable: true, clickable: true, borderColor: '#ccc', borderWidth: 1, labelMargin: 10 },
+				   yaxis: { min: 0, max: 15 }
+				 });
+		
+		var previousPoint = null;
+		jQuery("#chartplace2").bind("plothover", function (event, pos, item) {
+			jQuery("#x").text(pos.x.toFixed(2));
+			jQuery("#y").text(pos.y.toFixed(2));
+			
+			if(item) {
+				if (previousPoint != item.dataIndex) {
+					previousPoint = item.dataIndex;
+						
+					jQuery("#tooltip").remove();
+					var x = item.datapoint[0].toFixed(2),
+					y = item.datapoint[1].toFixed(2);
+						
+					showTooltip(item.pageX, item.pageY,
+									item.series.label + " of " + x + " = " + y);
+				}
+			
+			} else {
+			   jQuery("#tooltip").remove();
+			   previousPoint = null;            
+			}
+		
+		});
+		
+		jQuery("#chartplace2").bind("plotclick", function (event, pos, item) {
+			if (item) {
+				jQuery("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+				plot.highlight(item.series, item.datapoint);
+			}
+		});
+
+
+		// bar graph
+		var d2 = [];
+		for (var i = 0; i <= 10; i += 1)
+			d2.push([i, parseInt(Math.random() * 30)]);
+			
+		var stack = 0, bars = true, lines = false, steps = false;
+		jQuery.plot(jQuery("#bargraph2"), [ d2 ], {
+			series: {
+				stack: stack,
+				lines: { show: lines, fill: true, steps: steps },
+				bars: { show: bars, barWidth: 0.6 }
+			},
+			grid: { hoverable: true, clickable: true, borderColor: '#bbb', borderWidth: 1, labelMargin: 10 },
+			colors: ["#06c"]
+		});
+		
+		// calendar
+		jQuery('#calendar').datepicker();
+
+
+});
+</script>
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		// Smart Wizard 	
+  		jQuery('#wizard').smartWizard({onFinish: onFinishCallback});
+      	jQuery('#wizard2').smartWizard({onFinish: onFinishCallback});
+		jQuery('#wizard3').smartWizard({onFinish: onFinishCallback});
+		jQuery('#wizard4').smartWizard({onFinish: onFinishCallback});
+		
+		function onFinishCallback(){
+			alert('Finish Clicked');
+		} 
+		
+		jQuery(".inline").colorbox({inline:true, width: '60%', height: '500px'});
+		
+		jQuery('select, input:checkbox').uniform();
+	});
+</script>
+</body>
+</html>
